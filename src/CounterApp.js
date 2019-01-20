@@ -6,13 +6,18 @@ class CounterApp extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<TouchableOpacity style={styles.button} onPress={this.props.increaseCounter}>
+				<TouchableOpacity activeOpacity={0.5} style={styles.button} onPress={this.props.increaseCounter}>
 					<Text style={styles.text}>Increment</Text>
 				</TouchableOpacity>
 
 				<Text style={styles.vlaue}>{this.props.counter}</Text>
 
-				<TouchableOpacity onPress={this.props.decreaseCounter} style={styles.button}>
+				<TouchableOpacity
+					activeOpacity={0.5}
+					onPress={this.props.decreaseCounter}
+					style={[ styles.button, { backgroundColor: this.props.counter === 0 ? '#8097A2' : 'purple' } ]}
+					disabled={this.props.counter === 0}
+				>
 					<Text style={styles.text}>Decrement</Text>
 				</TouchableOpacity>
 			</View>
